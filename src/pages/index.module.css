@@ -1,0 +1,10 @@
+.main_container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:200px;
+}
+.left{
+    margin-right: 100px;
+}
