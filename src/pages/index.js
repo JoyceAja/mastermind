@@ -7,17 +7,20 @@ export default class MainPage extends Component {
   onDragOver = e => {
     e.preventDefault();
   };
+
+  onDragStart = (e, id) => {
+    e.dataTransfer.setData("id", id);
+  };
+
   render() {
+    const {  onDragOver, onDragStart } = this;
     return (
-      <div
-        onDragOver={e => this.onDragOver(e)}
-        className={styles.main_container}
-      >
+      <div className={styles.main_container}>
         <div className={styles.left}>
-          <Display />
+          <Display onDragOver={onDragOver} onDragStart={onDragStart}/>
         </div>
         <div>
-          <Guess />
+          <Guess onDragOver={onDragOver} onDragStart={onDragStart}/>
         </div>
       </div>
     );

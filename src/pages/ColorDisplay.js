@@ -1,14 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import styles from "./container.module.css";
 
 let colors = ["red", "blue", "purple", "orange", "green", "yellow"];
 //It is actually going to be displayed as a color image
 
 export default class Color extends Component {
-    onDragStart = (e, id) => {
-        e.dataTransfer.setData("id", id)
-    }
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+      const { onDragStart, onDragOver } = this.props
     return (
       <div>
         <ul className="container">
@@ -16,7 +18,8 @@ export default class Color extends Component {
             <div
               key={idx}
               draggable
-              onDragStart={(e) => this.onDragStart(e, idx)}
+              onDragStart={e => onDragStart(e, idx)}
+              onDragOver={e => onDragOver(e)}
               className={styles.draggable}
               style={{
                 backgroundColor: `${color}`,
