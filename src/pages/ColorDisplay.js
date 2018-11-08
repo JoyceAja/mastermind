@@ -10,7 +10,11 @@ export default class Color extends Component {
   // }
 
   render() {
-      const { onDragStart, onDragOver } = this.props
+    /**
+       * When dragging an element from the color display want to pass along the id which would 
+       * represent either an id with an association to a color or just simply a color
+       */
+    const { onDragStart, onDragOver } = this.props;
     return (
       <div>
         <ul className="container">
