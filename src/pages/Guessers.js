@@ -34,8 +34,8 @@ export default class Guesser extends Component {
               {el}
             </div>
           ))}
-          <button className={styles.button}>Submit</button>
         </div>
+        <button className={styles.button}>Submit</button>
       </div>
     );
   }
