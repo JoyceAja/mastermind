@@ -2,34 +2,31 @@ import React, { Component } from "react";
 import styles from "./guessers.module.css";
 
 export default class Guesser extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      guesses: ["", "", "", ""]
-    };
-  }
+  //   // this.state = {
+  //   //   guesses: ["", "", "", ""]
+  //   // };
+  // }
 
-  onDrop = (e, cat) => {
-    let id = e.dataTransfer.getData("id");
-
-    let guess = this.states 
+  onDragEnter = (e) => {
+    e.target.style = {backgroundColor: "red"}
   }
 
   render() {
-    const { guesses } = this.state 
-    const { onDragOver, onDragStart } = this.props
+    // const { guesses } = this.state 
+    const { onDragOver, onDrop, guess } = this.props
     return (
       <div>
         <div className={styles.guess_container}>
-          {guesses.map((el,idx) => (
+          {guess.map((el,idx) => (
             <div
               key={idx}
-              draggable
               className={styles.guess}
-              onDragOver={e => onDragOver(e,idx)}
-              onDragStart={e => onDragStart(e, idx)}
-              onDrop={e => this.onDrop(e, "selected")}
+              onDragOver={e => onDragOver(e)}
+              onDragEnter={e => this.onDragEnter(e)}
+              onDrop={e => onDrop(e, idx)}
             >
               {el}
             </div>

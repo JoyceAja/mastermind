@@ -14,7 +14,7 @@ export default class Color extends Component {
        * When dragging an element from the color display want to pass along the id which would 
        * represent either an id with an association to a color or just simply a color
        */
-    const { onDragStart, onDragOver } = this.props;
+    const { onDragStart } = this.props;
     return (
       <div>
         <ul className="container">
@@ -22,8 +22,7 @@ export default class Color extends Component {
             <div
               key={idx}
               draggable
-              onDragStart={e => onDragStart(e, idx)}
-              onDragOver={e => onDragOver(e)}
+              onDragStart={e => onDragStart(e, color)}
               className={styles.draggable}
               style={{
                 backgroundColor: `${color}`,
