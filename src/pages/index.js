@@ -18,8 +18,11 @@ export default class MainPage extends Component {
     console.log('drag that ass')
   };
 
+  onDragEnter = e => {
+    e.preventDefault();
+  } 
   onDragStart = (e, color) => {
-    console.log(color)
+    console.log('col',color)
     e.dataTransfer.setData("color", color);
   };
 
@@ -32,6 +35,8 @@ export default class MainPage extends Component {
  * throw out a message based on if the guess is correct/wrong
  */
   onDrop = (e, position) => {
+    e.preventDefault();
+    console.log('holaaaaa')
     const { guess } = this.state;
 
     let color = e.dataTransfer.getData("color");
@@ -45,9 +50,9 @@ export default class MainPage extends Component {
       ...this.state
     });
   };
-
+  
   render() {
-    const { onDragOver, onDragStart, onDrop } = this;
+    const { onDragOver, onDragStart, onDragEnter} = this;
     const { correctGuess, guess } = this.state;
     console.log('state of guesses', guess)
     return (
@@ -58,9 +63,10 @@ export default class MainPage extends Component {
         <div>
           <Guess
             onDragOver={onDragOver}
+            onDragEnter ={onDragEnter}
             onDragStart={onDragStart}
             correctGuess={correctGuess}
-            onDrop={onDrop}
+            onDrop={this.onDrop}
             guess={guess}
           />
         </div>

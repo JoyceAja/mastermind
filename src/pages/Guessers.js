@@ -11,12 +11,13 @@ export default class Guesser extends Component {
   // }
 
   onDragEnter = (e) => {
-    e.target.style = {backgroundColor: "red"}
+    e.preventDefault()
+    console.log('getting here bitches')
   }
 
   render() {
     // const { guesses } = this.state 
-    const { onDragOver, onDrop, guess } = this.props
+    const { onDragOver, guess, onDrop} = this.props
     return (
       <div>
         <div className={styles.guess_container}>
@@ -28,7 +29,7 @@ export default class Guesser extends Component {
               onDragEnter={e => this.onDragEnter(e)}
               onDrop={e => onDrop(e, idx)}
             >
-              {el}
+            {el? <div style={{backgroundColor: `${el}`,height:"100%"}}></div>: ""}
             </div>
           ))}
         </div>

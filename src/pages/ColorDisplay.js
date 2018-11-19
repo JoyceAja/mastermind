@@ -5,9 +5,6 @@ let colors = ["red", "blue", "purple", "orange", "green", "yellow"];
 //It is actually going to be displayed as a color image
 
 export default class Color extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   render() {
     /**
