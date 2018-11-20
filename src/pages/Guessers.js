@@ -29,7 +29,7 @@ export default class Guesser extends Component {
               onDragEnter={e => this.onDragEnter(e)}
               onDrop={e => onDrop(e, idx)}
             >
-            {el? <div style={{backgroundColor: `${el}`,height:"100%"}}></div>: ""}
+            {el? <div style={{backgroundColor:`${el}`,height:"100%"}}></div>: ""}
             </div>
           ))}
         </div>
