@@ -5,6 +5,7 @@
 
 .guess{
     width: 200px;
+    height:40px;
     border-bottom: 2px black solid;
     margin-right: 30px;
     text-align: center;
